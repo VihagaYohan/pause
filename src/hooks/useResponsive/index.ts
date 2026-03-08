@@ -10,7 +10,7 @@ const useResponsive = () => {
 
     useEffect(() => {
         getDeviceOrientation()
-    }, [orientation])
+    }, [])
 
     const getDeviceOrientation = async () => {
         const result: ScreenOrientation.Orientation = await ScreenOrientation.getOrientationAsync()
@@ -18,7 +18,7 @@ const useResponsive = () => {
     }
 
     const isTablet = width >= breakpoints.tablet
-    const isLandscape = orientation == 1 || 2 ? true : false
+    const isLandscape = orientation === 3 || orientation === 4
 
     return {
         isTablet,

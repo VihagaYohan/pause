@@ -88,7 +88,7 @@ describe('useResponsive', () => {
         });
 
         it('should return false when orientation is 1', async () => {
-            (useWindowDimensions as jest.Mock).mockReturnValue({ width: 400 });
+            (useWindowDimensions as jest.Mock).mockReturnValue({ width: 400, height: 600 });
             (ScreenOrientation.getOrientationAsync as jest.Mock).mockResolvedValue(1);
 
             const { result } = renderHook(() => useResponsive());
@@ -108,14 +108,12 @@ describe('useResponsive', () => {
 
     describe('getDeviceOrientation', () => {
         it('should call getOrientationAsync on mount', () => {
-            const getOrientationAsyncMock = jest.fn().mockResolvedValue(1);
-            (ScreenOrientation.getOrientationAsync as jest.Mock) =
-                getOrientationAsyncMock;
+            (ScreenOrientation.getOrientationAsync as jest.Mock).mockResolvedValue(1);
             (useWindowDimensions as jest.Mock).mockReturnValue({ width: 400 });
 
             renderHook(() => useResponsive());
 
-            expect(getOrientationAsyncMock).toHaveBeenCalledTimes(1);
+            expect(ScreenOrientation.getOrientationAsync).toHaveBeenCalledTimes(1);
         });
     });
 

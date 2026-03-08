@@ -1,100 +1,88 @@
-import palette from "./colors";
+import { DefaultTheme } from '@react-navigation/native';
+import { AppTheme } from '../types/navigation';
+import palette from "./palette";
 
-const theme = {
-    lightTheme: {
-        // Primary
-        primary: palette.primary40,             // #4A4580
-        onPrimary: palette.primary100,          // #FFFFFF
-        primaryContainer: palette.primary70,    // #C4B7E8
-        onPrimaryContainer: palette.primary20,  // #1A1A2E
+const lightTheme: AppTheme = {
+    dark: false,
+    colors: {
+        primary: palette.lightTheme.primary,
+        background: palette.lightTheme.background,
+        card: palette.lightTheme.surface,
+        text: palette.lightTheme.onSurface,
+        border: palette.lightTheme.outline,
+        notification: palette.lightTheme.error,
 
-        // Secondary
-        secondary: palette.primary50,           // #6B6880
-        onSecondary: palette.primary100,        // #FFFFFF
-        secondaryContainer: palette.primary96,  // #F0EEF8
-        onSecondaryContainer: palette.primary20,// #1A1A2E
-
-        // Tertiary
-        tertiary: palette.tertiary40,           // #C9A84C
-        onTertiary: palette.primary100,         // #FFFFFF
-
-        // Error
-        error: palette.error40,                 // #E1376B
-        onError: palette.primary100,            // #FFFFFF
-
-        // Background
-        background: palette.primary99,          // #FAF9F6
-        onBackground: palette.primary20,        // #1A1A2E
-
-        // Surface
-        surface: palette.primary99,             // #FAF9F6
-        onSurface: palette.primary20,           // #1A1A2E
-        onSurfaceVariant: palette.primary50,    // #6B6880
-        surfaceContainerLowest: palette.primary100, // #FFFFFF
-        surfaceContainerLow: palette.primary96, // #F0EEF8
-        surfaceContainer: palette.primary96,    // #F0EEF8
-        surfaceContainerHigh: palette.primary92,// #E8E4F4
-        surfaceContainerHighest: palette.primary90, // #E0DCF0
-
-        // Outline
-        outline: palette.primary90,             // #E0DCF0
-        outlineVariant: palette.primary70,      // #C4B7E8
-
-        // Inverse
-        inverseSurface: palette.primary20,      // #1A1A2E
-        inverseOnSurface: palette.primary95,    // #EAE8F5
-        inversePrimary: palette.primary80,      // #D4C9F0
-
-        // Scrim
-        scrim: palette.neutralOverlay,          // #00000066
+        // custom colors
+        onPrimary: palette.lightTheme.onPrimary,
+        primaryContainer: palette.lightTheme.primaryContainer,
+        onPrimaryContainer: palette.lightTheme.onPrimaryContainer,
+        secondary: palette.lightTheme.secondary,
+        onSecondary: palette.lightTheme.onSecondary,
+        secondaryContainer: palette.lightTheme.secondaryContainer,
+        onSecondaryContainer: palette.lightTheme.onSecondaryContainer,
+        tertiary: palette.lightTheme.tertiary,
+        onTertiary: palette.lightTheme.onTertiary,
+        error: palette.lightTheme.error,
+        onError: palette.lightTheme.onError,
+        onBackground: palette.lightTheme.onBackground,
+        onSurface: palette.lightTheme.onSurface,
+        onSurfaceVariant: palette.lightTheme.onSurfaceVariant,
+        surfaceContainerLowest: palette.lightTheme.surfaceContainerLowest,
+        surfaceContainerLow: palette.lightTheme.surfaceContainerLow,
+        surfaceContainer: palette.lightTheme.surfaceContainer,
+        surfaceContainerHigh: palette.lightTheme.surfaceContainerHigh,
+        surfaceContainerHighest: palette.lightTheme.surfaceContainerHighest,
+        outline: palette.lightTheme.outline,
+        outlineVariant: palette.lightTheme.outlineVariant,
+        inverseSurface: palette.lightTheme.inverseSurface,
+        inverseOnSurface: palette.lightTheme.inverseOnSurface,
+        inversePrimary: palette.lightTheme.inversePrimary,
+        scrim: palette.lightTheme.scrim,
     },
-    darkTheme: {
-        // Primary
-        primary: palette.primary40,             // #4A4580
-        onPrimary: palette.primary100,          // #FFFFFF
-        primaryContainer: palette.primary80,    // #D4C9F0
-        onPrimaryContainer: palette.primary10,  // #12111E
-
-        // Secondary
-        secondary: palette.primary60,           // #9B97B2
-        onSecondary: palette.primary10,         // #12111E
-        secondaryContainer: palette.primary25,  // #1E1C2E
-        onSecondaryContainer: palette.primary95,// #EAE8F5
-
-        // Tertiary
-        tertiary: palette.tertiary40,           // #C9A84C
-        onTertiary: palette.primary10,          // #12111E
-
-        // Error
-        error: palette.error40,                 // #E1376B
-        onError: palette.primary100,            // #FFFFFF
-
-        // Background
-        background: palette.primary10,          // #12111E
-        onBackground: palette.primary95,        // #EAE8F5
-
-        // Surface
-        surface: palette.primary10,             // #12111E
-        onSurface: palette.primary95,           // #EAE8F5
-        onSurfaceVariant: palette.primary60,    // #9B97B2
-        surfaceContainerLowest: palette.primary10, // #12111E
-        surfaceContainerLow: palette.primary25, // #1E1C2E
-        surfaceContainer: palette.primary25,    // #1E1C2E
-        surfaceContainerHigh: palette.primary30,// #2E2B4A
-        surfaceContainerHighest: palette.primary35, // #3D3A5C
-
-        // Outline
-        outline: palette.primary30,             // #2E2B4A
-        outlineVariant: palette.primary35,      // #3D3A5C
-
-        // Inverse
-        inverseSurface: palette.primary95,      // #EAE8F5
-        inverseOnSurface: palette.primary20,    // #1A1A2E
-        inversePrimary: palette.primary40,      // #4A4580
-
-        // Scrim
-        scrim: palette.neutralOverlay,          // #00000066
-    }
+    fonts: DefaultTheme.fonts
 }
 
-export default theme;
+const darkTheme: AppTheme = {
+    dark: true,
+    colors: {
+        primary: palette.darkTheme.primary,
+        background: palette.darkTheme.background,
+        card: palette.darkTheme.surface,
+        text: palette.darkTheme.onSurface,
+        border: palette.darkTheme.outline,
+        notification: palette.darkTheme.error,
+
+        // custom colors
+        onPrimary: palette.darkTheme.onPrimary,
+        primaryContainer: palette.darkTheme.primaryContainer,
+        onPrimaryContainer: palette.darkTheme.onPrimaryContainer,
+        secondary: palette.darkTheme.secondary,
+        onSecondary: palette.darkTheme.onSecondary,
+        secondaryContainer: palette.darkTheme.secondaryContainer,
+        onSecondaryContainer: palette.darkTheme.onSecondaryContainer,
+        tertiary: palette.darkTheme.tertiary,
+        onTertiary: palette.darkTheme.onTertiary,
+        error: palette.darkTheme.error,
+        onError: palette.darkTheme.onError,
+        onBackground: palette.darkTheme.onBackground,
+        onSurface: palette.darkTheme.onSurface,
+        onSurfaceVariant: palette.darkTheme.onSurfaceVariant,
+        surfaceContainerLowest: palette.darkTheme.surfaceContainerLowest,
+        surfaceContainerLow: palette.darkTheme.surfaceContainerLow,
+        surfaceContainer: palette.darkTheme.surfaceContainer,
+        surfaceContainerHigh: palette.darkTheme.surfaceContainerHigh,
+        surfaceContainerHighest: palette.darkTheme.surfaceContainerHighest,
+        outline: palette.darkTheme.outline,
+        outlineVariant: palette.darkTheme.outlineVariant,
+        inverseSurface: palette.darkTheme.inverseSurface,
+        inverseOnSurface: palette.darkTheme.inverseOnSurface,
+        inversePrimary: palette.darkTheme.inversePrimary,
+        scrim: palette.darkTheme.scrim,
+    },
+    fonts: DefaultTheme.fonts
+}
+
+export default {
+    lightTheme,
+    darkTheme
+};
