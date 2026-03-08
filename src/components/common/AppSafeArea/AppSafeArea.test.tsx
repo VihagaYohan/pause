@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react-native';
 import { View } from 'react-native';
+import { render } from '../../../../test/TestProviders/NavigationContainer';
 
 // components
 import { AppSafeArea } from '../..';
