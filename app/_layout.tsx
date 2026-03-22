@@ -1,6 +1,6 @@
 import { Fraunces_600SemiBold, Fraunces_700Bold } from '@expo-google-fonts/fraunces';
 import { PlusJakartaSans_400Regular, PlusJakartaSans_500Medium, PlusJakartaSans_600SemiBold, PlusJakartaSans_700Bold } from '@expo-google-fonts/plus-jakarta-sans';
-import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from "expo-router";
 import * as SplashScreen from 'expo-splash-screen';
@@ -35,7 +35,7 @@ export default function RootLayout() {
     return null
   }
 
-  return <ThemeProvider value={colorScheme === 'dark' ? theme.darkTheme : DefaultTheme}>
+  return <ThemeProvider value={colorScheme === 'dark' ? theme.darkTheme : theme.lightTheme}>
     <Stack screenOptions={{ headerShown: false }} initialRouteName='OnboardingPage'>
       <Stack.Screen name="/onboarding" />
     </Stack>

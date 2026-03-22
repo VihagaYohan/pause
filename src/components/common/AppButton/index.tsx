@@ -4,6 +4,9 @@ import { Pressable, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 // components
 import { AppText } from '../../index';
 
+// theme
+import { radius, spacing } from '../../../theme';
+
 interface AppButtonProps {
     title: string;
     onPress: () => void;
@@ -36,7 +39,10 @@ const AppButton: React.FC<AppButtonProps> = ({
 
 const styles = StyleSheet.create({
     container: {
-
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingVertical: spacing.md,
+        borderRadius: radius.lg
     },
     buttonLabel: {
         color: 'white'

@@ -10,7 +10,8 @@ const Onboarding = () => {
             <Text>Onboarding screen</Text>
             <AppButton
                 title="Let's start"
-                onPress={() => console.log("hello, world!")} />
+                onPress={() => console.log("hello, world!")}
+                isPrimary={true} />
         </AppSafeArea>
     )
 }
