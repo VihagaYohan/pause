@@ -12,9 +12,18 @@ export default function Index() {
     >
       <Text>Pause App : Digital Wellbeing App</Text>
 
-      <Link href="/onboarding">
+      {/* <Link href="/onboarding">
         <Text>Go to Onboarding</Text>
+      </Link> */}
+
+      <Link href="/OnboardingPage">
+          <Text>Go to Input Screen</Text>
       </Link>
+      
+      <Link href="/textinput">
+          <Text>Go to Input Screen</Text>
+      </Link>
+
     </View>
   );
 }
