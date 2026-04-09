@@ -1,42 +1,83 @@
 import React from "react";
-import {TextInput,StyleSheet,View,useColorScheme} from "react-native";
+import {
+  TextInput,
+  StyleSheet,
+  View,
+  useColorScheme,
+  KeyboardTypeOptions,
+  ReturnKeyTypeOptions,
+  TextStyle,
+} from "react-native";
 
-interface Props {
+import typograpy from "../../../theme/typograpy"; 
+import palette from "../../../theme/palette";
+
+interface TextInputProps {
   placeholder: string;
   value?: string;
   onChangeText?: (text: string) => void;
   multiline?: boolean;
+
+  // keyboard props
+  keyboardType?: KeyboardTypeOptions;
+  returnKeyType?: ReturnKeyTypeOptions;
+  autoFocus?: boolean;
+  blurOnSubmit?: boolean;
+  onSubmitEditing?: () => void;
+
+  // typography override
+  textStyle?: TextStyle;
 }
 
-const AppTextInput: React.FC<Props> = ({
+const AppTextInput: React.FC<TextInputProps> = ({
   placeholder,
   value,
   onChangeText,
   multiline = true,
+
+  keyboardType = "default",
+  returnKeyType = "done",
+  autoFocus = false,
+  blurOnSubmit = true,
+  onSubmitEditing,
+
+  textStyle,
 }) => {
   const colorScheme = useColorScheme();
-  const isDark = colorScheme === "dark";
+  // const isDark = colorScheme === "dark";
+  const theme = colorScheme === "dark" ? palette.darkTheme : palette.lightTheme;
 
   return (
     <View
       style={[
         styles.container,
         {
-          backgroundColor: isDark ? "#1E1E2E" : "#F5F5F7",
-          borderColor: isDark ? "#3A3A55" : "#D6D6E7",
+          backgroundColor: theme.surfaceContainerLow, //  from palette
+          borderColor: theme.outlineVariant,          //  from palette
         },
       ]}
     >
-      <TextInput
+     
+<TextInput
         placeholder={placeholder}
-        placeholderTextColor={isDark ? "#A1A1B5" : "#8E8EA0"}
+        placeholderTextColor={theme.onSurfaceVariant} 
         value={value}
         onChangeText={onChangeText}
         multiline={multiline}
+
+        keyboardType={keyboardType}
+        returnKeyType={returnKeyType}
+        autoFocus={autoFocus}
+        blurOnSubmit={blurOnSubmit}
+        onSubmitEditing={onSubmitEditing}
+        textAlignVertical="top"
+
         style={[
           styles.input,
+          typograpy.bodyMedium,
+          textStyle,
           {
-            color: isDark ? "#FFFFFF" : "#000000",
+            color: theme.onPrimary, //  text color
           },
         ]}
       />
@@ -44,7 +85,6 @@ const AppTextInput: React.FC<Props> = ({
   );
 };
 
-export default AppTextInput;
 
 const styles = StyleSheet.create({
   container: {
@@ -54,8 +94,7 @@ const styles = StyleSheet.create({
     minHeight: 120,
     justifyContent: "flex-start",
   },
-  input: {
-    fontSize: 16,
-    lineHeight: 22,
-  },
+  input: {},
 });
+
+export default AppTextInput;
