@@ -1,6 +1,6 @@
 import { useTheme } from '@react-navigation/native'
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 // types
@@ -22,7 +22,11 @@ const AppSafeArea: React.FC<SafeAreaProps> = ({ children, testID, paddingHorizon
             testID={testID}
             style={styles(colors, paddingHorizontal).container}
             {...props}>
-            <View style={{ flex: 1 }}>{children}</View>
+            <KeyboardAvoidingView
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                style={{ flex: 1 }}>
+                <View style={{ flex: 1 }}>{children}</View>
+            </KeyboardAvoidingView>
         </SafeAreaView>
     )
 }
