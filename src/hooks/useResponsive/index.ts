@@ -5,7 +5,7 @@ import { useWindowDimensions } from 'react-native';
 import { breakpoints } from '../../theme';
 
 const useResponsive = () => {
-    const { width } = useWindowDimensions()
+    const { width, height } = useWindowDimensions()
     const [orientation, setOrientation] = useState<number>(1)
 
     useEffect(() => {
@@ -22,7 +22,9 @@ const useResponsive = () => {
 
     return {
         isTablet,
-        isLandscape
+        isLandscape,
+        screenWidth: width,
+        screenHeight: height
     }
 }
 

@@ -1,4 +1,4 @@
-interface Onboarding {
+export interface Onboarding {
     title: string,
     description: string
 }

@@ -1,1 +1,1 @@
-export { default as onboardingData } from './Onboarding';
+export { default as OnboardingData } from './Onboarding';

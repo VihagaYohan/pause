@@ -11,27 +11,27 @@ import { spacing } from '../../../theme'
 
 type SafeAreaProps = {
     children: React.ReactNode,
-    testID?: string
+    testID?: string,
+    paddingHorizontal?: number
 }
 
-const AppSafeArea: React.FC<SafeAreaProps> = ({ children, testID, ...props }: SafeAreaProps) => {
+const AppSafeArea: React.FC<SafeAreaProps> = ({ children, testID, paddingHorizontal, ...props }: SafeAreaProps) => {
     const { colors } = useTheme()
     return (
         <SafeAreaView
             testID={testID}
-            style={styles(colors).container}
+            style={styles(colors, paddingHorizontal).container}
             {...props}>
             <View style={{ flex: 1 }}>{children}</View>
         </SafeAreaView>
     )
 }
 
-const styles = (colors: AppTheme['colors']) => StyleSheet.create({
+const styles = (colors: AppTheme['colors'], paddingHorizontal: number = spacing.md) => StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.background,
-        paddingHorizontal: spacing.md,
-        borderWidth: 1
+        paddingHorizontal: paddingHorizontal,
     }
 })
 
