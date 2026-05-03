@@ -1,17 +1,15 @@
-import { useTheme } from '@react-navigation/native'
-import { useState } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 
 // components
+import { AppTextInput } from '../../components'
 
 const PageOne = () => {
-    const [reason, setReason] = useState<String>("")
-    const { colors } = useTheme()
 
     return (
-        <View style={styles.container}>
-
-        </View>
+        <AppTextInput
+            placeholder="What's pulling you away from what matters?"
+            multiline={true}
+            keyboardType='default' />
     )
 }
 
