@@ -1,3 +1,5 @@
+/// <reference types="jest" />
+
 import { render } from '../../../../test/TestProviders/NavigationContainer';
 
 // components

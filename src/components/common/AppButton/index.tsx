@@ -1,3 +1,4 @@
+import React from 'react';
 import { useTheme } from '@react-navigation/native';
 import { Pressable, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 

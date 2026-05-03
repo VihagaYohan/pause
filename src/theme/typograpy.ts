@@ -55,7 +55,7 @@ const typography = {
     wordmark: {
         fontSize: moderateScale(28),
         fontWeight: 700 as const,
-        fontFamily: fonts.fraunces.boldItalic
+        fontFamily: fonts.fraunces.semiBoldItalic,
     },
 
     // body & UI

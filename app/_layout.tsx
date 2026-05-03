@@ -1,4 +1,4 @@
-import { Fraunces_600SemiBold, Fraunces_700Bold } from '@expo-google-fonts/fraunces';
+import { Fraunces_600SemiBold, Fraunces_600SemiBold_Italic, Fraunces_700Bold, Fraunces_700Bold_Italic } from '@expo-google-fonts/fraunces';
 import { PlusJakartaSans_400Regular, PlusJakartaSans_500Medium, PlusJakartaSans_600SemiBold, PlusJakartaSans_700Bold } from '@expo-google-fonts/plus-jakarta-sans';
 import { ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -14,7 +14,9 @@ export default function RootLayout() {
   const [fontLoaded, fontError] = useFonts({
     // fraunces
     'Fraunces-SemiBold': Fraunces_600SemiBold,
+    'Fraunces-SemiBold-Italic': Fraunces_600SemiBold_Italic,
     'Fraunces-Bold': Fraunces_700Bold,
+    'Fraunces-Bold-Italic': Fraunces_700Bold_Italic,
 
     // plus jakarta sans
     'Jakarta-Regular': PlusJakartaSans_400Regular,

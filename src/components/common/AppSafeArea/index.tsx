@@ -21,7 +21,7 @@ const AppSafeArea: React.FC<SafeAreaProps> = ({ children, testID, ...props }: Sa
             testID={testID}
             style={styles(colors).container}
             {...props}>
-            <View>{children}</View>
+            <View style={{ flex: 1 }}>{children}</View>
         </SafeAreaView>
     )
 }
@@ -30,7 +30,8 @@ const styles = (colors: AppTheme['colors']) => StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.background,
-        paddingHorizontal: spacing.md
+        paddingHorizontal: spacing.md,
+        borderWidth: 1
     }
 })
 
