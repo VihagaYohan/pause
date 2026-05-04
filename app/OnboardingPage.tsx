@@ -1,6 +1,5 @@
 import React from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 // components
 import { AppButton, AppSafeArea, AppText } from '@/src/components'
@@ -21,7 +20,6 @@ import PageOne from '@/src/widgets/onboarding/PageOne'
 import { useResponsive } from '../src/hooks/index'
 
 const OnboardingPage = () => {
-    const insets = useSafeAreaInsets()
     const { screenWidth } = useResponsive()
 
     const PageWidth = screenWidth
@@ -60,22 +58,17 @@ const OnboardingPage = () => {
 
     return (
         <AppSafeArea>
-            <Logo />
-
-            <Paginator count={4} activeIndex={0} />
-
-            {renderPage()}
-
+            <ScrollView
+                style={{ flex: 1 }}
+                contentContainerStyle={{ flexGrow: 1 }}
+                keyboardShouldPersistTaps="handled">
+                <Logo />
+                <Paginator count={4} activeIndex={0} />
+                {renderPage()}
+            </ScrollView>
             <AppButton
                 title="Let's start"
-                onPress={() => console.log("hello, world!")}
-                style={{
-                    position: 'absolute',
-                    bottom: insets.bottom,
-                    left: 0,
-                    right: 0
-                }} />
-
+                onPress={() => console.log("hello, world!")} />
         </AppSafeArea>
     )
 }
