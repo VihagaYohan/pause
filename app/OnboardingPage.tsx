@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
 
 // components
@@ -21,6 +21,7 @@ import { useResponsive } from '../src/hooks/index'
 
 const OnboardingPage = () => {
     const { screenWidth } = useResponsive()
+    const [pageIndex, setPageIndex] = useState<number>(0)
 
     const PageWidth = screenWidth
 
@@ -31,7 +32,10 @@ const OnboardingPage = () => {
                     style={styles.scrollView}
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
-                    pagingEnabled={true}>
+                    pagingEnabled={true}
+                    onScroll={(event) => {
+                        setPageIndex(Math.round(event.nativeEvent.contentOffset.x / PageWidth))
+                    }}>
                     {OnboardingData.map((item: Onboarding, index: number) => {
                         return (
                             <View
@@ -67,7 +71,7 @@ const OnboardingPage = () => {
                 {renderPage()}
             </ScrollView>
             <AppButton
-                title="Let's start"
+                title={pageIndex === 0 ? "Let's start": "Continue"}
                 onPress={() => console.log("hello, world!")} />
         </AppSafeArea>
     )
