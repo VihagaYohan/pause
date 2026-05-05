@@ -5,8 +5,8 @@ import { ScrollView, StyleSheet, View } from 'react-native'
 import { AppButton, AppSafeArea, AppText } from '@/src/components'
 
 // widgets
-import Paginator from '@/src/widgets/onboarding/Paginator'
 import Logo from '../src/widgets/common/Logo'
+import { PageOne, PageTwo, Paginator } from '../src/widgets/onboarding/index'
 
 // data
 import { OnboardingData } from '../src/data/index'
@@ -16,7 +16,6 @@ import { Onboarding } from '../src/data/Onboarding'
 import { spacing, typography } from '../src/theme/index'
 
 // hooks
-import PageOne from '@/src/widgets/onboarding/PageOne'
 import { useResponsive } from '../src/hooks/index'
 
 const OnboardingPage = () => {
@@ -50,7 +49,7 @@ const OnboardingPage = () => {
                                 <AppText style={{ ...styles.description, ...typography.bodyMedium }}>{item.description}</AppText>
 
                                 <View style={styles.pageItemContainer}>
-                                    {index === 0 && <PageOne />}
+                                    {index === 0 ? <PageOne /> : index === 1 ? <PageTwo/> : null}
                                 </View>
                             </View>
                         )
