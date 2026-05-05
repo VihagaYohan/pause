@@ -23,11 +23,15 @@ interface OptionItemProps {
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable)
 const AnimatedAppText = Animated.createAnimatedComponent(AppText)
 
+const IndicatorSize = 10
+
 const OptionItem: React.FC<OptionItemProps> = ({item, width, index, onPress, colors, isSelected}: OptionItemProps) => {
     const animatedValue = useSharedValue(0)
+    const opacityValue = useSharedValue(0)
 
     useEffect(() => {
         animatedValue.value = withTiming(isSelected ? 1 : 0, {duration: 300})
+        opacityValue.value = withTiming(isSelected ? 1: 0, {duration: 300})
     },  [isSelected])
 
     const animatedBackgroundStyle = useAnimatedStyle(() => ({
@@ -39,12 +43,19 @@ const OptionItem: React.FC<OptionItemProps> = ({item, width, index, onPress, col
         color: interpolateColor(animatedValue.value, [0, 1], [colors.text, colors.onPrimary])
     }))
 
+    const animatedOpacityStyle = useAnimatedStyle(() => ({
+        opacity: opacityValue.value
+    }))
+
+    // RENDER UI
     return (
         <AnimatedPressable
         style={[styles(colors, isSelected, index).container, animatedBackgroundStyle]}
         onPress={() => {onPress()}}>
                 <AnimatedAppText
                 style={[styles(colors, isSelected).itemTitle, animatedTextStyle]}>{item.title}</AnimatedAppText>
+
+                <Animated.View style={[styles(colors, isSelected).indicator, animatedOpacityStyle]}/>
         </AnimatedPressable>
     )
 }
@@ -66,7 +77,16 @@ index: number = 0) => StyleSheet.create({
     itemTitle: {
         color: selected ? color.onPrimary: color.text,
         textAlign: 'center',
-        ...typography.bodyMedium
+        ...typography.caption
+    },
+    indicator: {
+        position: 'absolute',
+        bottom: 10,
+        left: 10,
+        width: IndicatorSize,
+        height: IndicatorSize,
+        borderRadius: IndicatorSize / 2,
+        backgroundColor: color.tertiary
     }
 })
 
