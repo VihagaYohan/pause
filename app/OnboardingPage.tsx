@@ -6,7 +6,7 @@ import { AppButton, AppSafeArea, AppText } from '@/src/components'
 
 // widgets
 import Logo from '../src/widgets/common/Logo'
-import { PageOne, PageTwo, Paginator } from '../src/widgets/onboarding/index'
+import { PageOne, PageThree, PageTwo, Paginator } from '../src/widgets/onboarding/index'
 
 // data
 import { OnboardingData } from '../src/data/index'
@@ -49,7 +49,7 @@ const OnboardingPage = () => {
                                 <AppText style={{ ...styles.description, ...typography.bodyMedium }}>{item.description}</AppText>
 
                                 <View style={styles.pageItemContainer}>
-                                    {index === 0 ? <PageOne /> : index === 1 ? <PageTwo/> : null}
+                                    {index === 0 ? <PageOne /> : index === 1 ? <PageTwo/> : <PageThree /> }
                                 </View>
                             </View>
                         )
